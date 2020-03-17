@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import useForm from 'react-hook-form';
 import * as Yup from 'yup';
 
 /**Classe que gera e renderiza um formulário html responsável pela
@@ -44,17 +45,6 @@ class PostForm extends Component {
     event.preventDefault();
     //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     
-    //Controi schema do Yup com o qual a entrada do usuário será
-    //comparada para validação
-    let schema = Yup.object().shape({
-      nome: Yup.string().required(),
-    })
-
-    //Executa validação
-    schema.validate({
-      nome: this.state.nomeatividade
-    }).catch( error => console.log(error));
-
     const postBody = {
       nomeatividade: this.state.nomeatividade,
       situacaoatividade: this.state.situacaoatividade,
@@ -62,19 +52,24 @@ class PostForm extends Component {
     /**Outra alternativa: usar FormData para pegar os inputs pelo evento em
      * vez de usar this.state */
     
-    //Chama App para realizar http POST.
-    //this.postCallBack(postBody);
+    this.postCallBack(postBody);
   }
   
   render() {
+    
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          Atividade<input type='text' name='nomeatividade' onChange={this.handleChange}></input><br/>
-          Situação<input type='text' name='situacaoatividade' onChange={this.handleChange}></input><br/>
+          <label>Atividade</label>
+          <input type='text' name='nomeatividade' onChange={this.handleChange}></input>
+          <br/>
+          
+          <label>Situação</label>
+          <input type='text' name='situacaoatividade' onChange={this.handleChange}></input>
+          <br/>
+          
           <input type='submit' value='submit'></input>
         </form>
-        <p>Mensagens de erro</p>
       </div>
     )
   }

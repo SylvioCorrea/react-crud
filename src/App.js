@@ -4,6 +4,7 @@ import axios from 'axios';
 import ApiItem from './components/ApiItem';
 import PostForm from './components/PostForm';
 import EditForm from './components/EditForm';
+import PostFormik from './components/PostFormik'
 import './App.css';
 
 const apiEndPoint = 'http://10.128.0.7:8080/activity';
@@ -106,13 +107,13 @@ class App extends Component {
   }
   
   render() {
+    
     return (
       <div>
-        <center><h1>nonononono</h1></center>
+        <center><h1>novo titulo</h1></center>
         
-        {console.log('inside return')}
-        
-        <PostForm apiEndPoint={apiEndPoint} postCallBack={this.postItem}/>
+        {/* <PostForm apiEndPoint={apiEndPoint} postCallBack={this.postItem}/> */}
+        <PostFormik onSubmitCallback={this.postItem}></PostFormik>
         
         <div ref={this.editFormScrollRef}></div>
         <div style={{height:20}} />
@@ -130,6 +131,7 @@ class App extends Component {
       </div>
     );
   }
+  
 }
 
 export default App;
