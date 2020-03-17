@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import ApiItem from './components/ApiItem';
-import PostForm from './components/PostForm';
 import EditForm from './components/EditForm';
 import PostFormik from './components/PostFormik'
 import './App.css';

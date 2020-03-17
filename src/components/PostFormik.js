@@ -33,8 +33,8 @@ function PostFormik(props) {
         <ErrorMessage name='nomeatividade' />
         <br></br>
 
-        <label htmlFor='situacaoatividade'>Situação</label>
-        <Field name='situacaoatividade' type='text'/>
+        <label htmlFor='situacaoatividade'> Situação </label>
+        <Field name='situacaoatividade' type='text' />
         <ErrorMessage name='situacaoatividade' />
         <br></br>
 
